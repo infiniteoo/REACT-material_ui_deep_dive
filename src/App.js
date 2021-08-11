@@ -8,7 +8,12 @@ import CheckBox from "@material-ui/core/CheckBox";
 import { useState } from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
+import { orange, green } from "@material-ui/core/colors";
+import {
+  makeStyles,
+  ThemeProvider,
+  createTheme,
+} from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
@@ -18,6 +23,17 @@ const useStyles = makeStyles({
     borderRadius: 15,
     color: "white",
     padding: "5px 30px",
+  },
+});
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: green[400],
+    },
+    secondary: {
+      main: orange[400],
+    },
   },
 });
 
@@ -51,38 +67,40 @@ function CheckboxExample() {
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <ButtonStyled />
-        <TextField
-          variant="filled"
-          color="secondary"
-          type="email"
-          label="The Time"
-          placeholder="test@test.com"
-        />
-        <CheckboxExample />
-        <ButtonGroup variant="contained" color="primary">
-          <Button
-            size="large"
-            startIcon={<SaveIcon />}
-            href="#"
-            onClick={() => alert("hello")}
-          >
-            Save
-          </Button>
-          <Button
-            size="large"
-            endIcon={<DeleteIcon />}
-            href="#"
-            onClick={() => alert("hello")}
-          >
-            Discard
-          </Button>
-        </ButtonGroup>
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <header className="App-header">
+          <ButtonStyled />
+          <TextField
+            variant="filled"
+            color="secondary"
+            type="email"
+            label="The Time"
+            placeholder="test@test.com"
+          />
+          <CheckboxExample />
+          <ButtonGroup variant="contained" color="primary">
+            <Button
+              size="large"
+              startIcon={<SaveIcon />}
+              href="#"
+              onClick={() => alert("hello")}
+            >
+              Save
+            </Button>
+            <Button
+              size="large"
+              endIcon={<DeleteIcon />}
+              href="#"
+              onClick={() => alert("hello")}
+            >
+              Discard
+            </Button>
+          </ButtonGroup>
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+      </div>
+    </ThemeProvider>
   );
 }
 
