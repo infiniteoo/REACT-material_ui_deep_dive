@@ -16,6 +16,8 @@ function CheckboxExample() {
       control={
         <CheckBox
           checked={checked}
+          icon={<SaveIcon />}
+          checkedIcon={<SaveIcon />}
           onChange={(e) => {
             setChecked(e.target.checked);
           }}
