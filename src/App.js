@@ -7,7 +7,12 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import CheckBox from "@material-ui/core/CheckBox";
 import { useState } from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import TextField from "@material-ui/core/TextField";
+/* import TextField from "@material-ui/core/TextField"; */
+import { AppBar } from "@material-ui/core";
+import { Toolbar } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+
 import { orange, green } from "@material-ui/core/colors";
 import {
   makeStyles,
@@ -82,6 +87,15 @@ function App() {
       <Container maxWidth="xs">
         <div className="App">
           <header className="App-header">
+            <AppBar color="secondary">
+              <Toolbar>
+                <IconButton>
+                  <MenuIcon />
+                </IconButton>
+                <Typography variant="h6">MUI Themeing</Typography>
+                <Button>Login</Button>
+              </Toolbar>
+            </AppBar>
             <Typography variant="h2" component="div">
               Welcome to MUI
             </Typography>
